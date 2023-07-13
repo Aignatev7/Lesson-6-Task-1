@@ -1,10 +1,13 @@
 #include <iostream>
 #include <cmath>
-#include "math.h"
-
+#include "addition.h"
+#include "subtraction.h"
+#include "multiplication.h"
+#include "divizion.h"
+#include "exponentiation.h"
 
 int main() {
-	setlocale(0, "rus");
+	setlocale(LC_ALL, "rus");
 	double a;
 	double b;
 	int x = 0;
@@ -15,8 +18,26 @@ int main() {
 	std::cin >> b;
 	std::cout << "Выберите операцию (1 - сложение, 2 вычитание, 3 - умножение, 4 - деление, 5 - возведение в степень): ";
 	std::cin >> x;
-	double pow = std::pow(a, b);
-	calculation(a, b, pow, x);
+
+	switch (x) {
+	case 1:
+		std::cout << a << " + " << b << " = " << addition(a, b) << std::endl;
+		break;
+	case 2:
+		std::cout << a << " - " << b << " = " << subtraction(a, b) << std::endl;
+		break;
+	case 3:
+		std::cout << a << " * " << b << " = " << multiplication(a, b) << std::endl;
+		break;
+	case 4:
+		std::cout << a << " : " << b << " = " << divizion(a, b) << std::endl;
+		break;
+	case 5:
+		std::cout << a << " в степени " << b << " = " << exponentiation(a, b) << std::endl;
+		break;
+	default:
+		break;
+	}
 }
 
 
